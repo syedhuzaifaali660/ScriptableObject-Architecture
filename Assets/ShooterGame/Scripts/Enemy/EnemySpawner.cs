@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("SO References")]
-    [SerializeField] private EnemyCollection _enemyCollection;
+    [SerializeField] private GameObjectCollection _enemyCollection;
     [SerializeField] private GameEvent _onPlayerDied;
 
     [Header("Spawn Settings")]

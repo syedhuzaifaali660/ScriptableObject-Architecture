@@ -8,20 +8,19 @@ using UnityEngine;
 /// </summary>
 public class EnemyCollectionMember : MonoBehaviour
 {
-    [SerializeField] private EnemyCollection _collection;
+    [SerializeField] private GameObjectCollection _collection;
 
     private EnemyController _enemy;
 
-    private void OnEnable()
-    {
-        _enemy = GetComponent<EnemyController>();
-        if (_collection != null && _enemy != null)
-            _collection.Add(_enemy);
-    }
+private void OnEnable()
+{
+    if (_collection != null)
+        _collection.Add(gameObject);
+}
 
-    private void OnDisable()
-    {
-        if (_collection != null && _enemy != null)
-            _collection.Remove(_enemy);
-    }
+private void OnDisable()
+{
+    if (_collection != null)
+        _collection.Remove(gameObject);
+}
 }

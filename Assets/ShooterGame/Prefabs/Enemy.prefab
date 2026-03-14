@@ -106,13 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edeaf6ef51bf649ccba72b5218a313ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  _hitsToKill: {fileID: 11400000, guid: d5901410e9a2048b6b350eea654c7fae, type: 2}
-  _bulletSpeed: {fileID: 11400000, guid: 8d29a63c19ac9473e85ad26e53c9604c, type: 2}
-  _scoreValue: {fileID: 11400000, guid: d2f1d9ded097b4adc805cfea08476240, type: 2}
-  _currentScore: {fileID: 11400000, guid: b4fd8d387009b4ea9ba4f78446a82fd1, type: 2}
-  _isGameOver: {fileID: 11400000, guid: 75c66e5c3bc714eb5943028cb66b7682, type: 2}
-  _onEnemyDied: {fileID: 11400000, guid: 22dd1304ea25a48258bec0d2c4de0ad7, type: 2}
-  _onScoreChanged: {fileID: 11400000, guid: be50f924730c14e45b8bb3223fce1e4e, type: 2}
+  _hitsToKill: {fileID: 11400000, guid: d2fe97d398e9640a0b84b63f2ba083c4, type: 2}
+  _bulletSpeed: {fileID: 11400000, guid: f330ca90f0e7f4a92b54a1cb07c13fdd, type: 2}
+  _scoreValue: {fileID: 11400000, guid: 328a8a78396fb47fb866c1b7d8177f45, type: 2}
+  _currentScore: {fileID: 11400000, guid: f0da2095e5f064e96a90cc9f81c5a9c0, type: 2}
+  _isGameOver: {fileID: 11400000, guid: 3bb60406d55e74e51a042b7ea87c11aa, type: 2}
+  _onEnemyDied: {fileID: 11400000, guid: 3b10879acc99b4a759bd494ffa91f484, type: 2}
+  _onScoreChanged: {fileID: 11400000, guid: f665bff60e4fe41478709283f30addcc, type: 2}
   _bulletPrefab: {fileID: 2838311319724030120, guid: d9aeb7980d96747db9edd5c5277500cb,
     type: 3}
   _fireRate: 2
@@ -177,4 +177,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4c9f2d82f9d447e8ed97afaba9427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCollectionMember
-  _collection: {fileID: 0}
+  _collection: {fileID: 11400000, guid: fe133dd5fd63149388be874bd31eb78f, type: 2}

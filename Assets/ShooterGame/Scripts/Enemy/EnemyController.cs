@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour
         }
 
         _nextFireTime = Time.time + Random.Range(0.5f, _fireRate);
+
     }
 
     private void Update()

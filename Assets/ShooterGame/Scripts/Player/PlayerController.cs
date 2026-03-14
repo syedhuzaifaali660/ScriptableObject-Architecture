@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private Vector3 _moveInput;
 
+public void Print(string message)
+    {
+        Debug.Log($"[PlayerController] {message}");
+    }
     private void Awake()
     {
         _cam = Camera.main;
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _onPlayerDamaged.AddListener(TakeDamage);
+
     }
 
     private void OnDisable()
