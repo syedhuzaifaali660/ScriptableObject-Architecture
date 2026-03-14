@@ -51,6 +51,10 @@ namespace ScriptableObjectArchitecture.Editor
         }
         public override void OnInspectorGUI()
         {
+            // Force repaint during Play so runtime-added items show correctly
+            if (Application.isPlaying)
+                Repaint();
+
             EditorGUI.BeginChangeCheck();
 
             _reorderableList.DoLayoutList();
@@ -67,19 +71,27 @@ namespace ScriptableObjectArchitecture.Editor
         private void DrawElement(Rect rect, int index, bool isActive, bool isFocused)
         {
             rect = SOArchitecture_EditorUtility.GetReorderableListElementFieldRect(rect);
-            SerializedProperty property = CollectionItemsProperty.GetArrayElementAtIndex(index);
 
             EditorGUI.BeginDisabledGroup(DISABLE_ELEMENTS);
 
-            GenericPropertyDrawer.DrawPropertyDrawer(rect, property, Target.Type);
+            // For UnityEngine.Object types (GameObject, Component etc.) read directly
+            // from the runtime list to avoid serialized property type mismatch
+            if (typeof(UnityEngine.Object).IsAssignableFrom(Target.Type))
+            {
+                object item = index < Target.Count ? Target.List[index] : null;
+                EditorGUI.ObjectField(rect, item as UnityEngine.Object, Target.Type, true);
+            }
+            else
+            {
+                SerializedProperty property = CollectionItemsProperty.GetArrayElementAtIndex(index);
+                GenericPropertyDrawer.DrawPropertyDrawer(rect, property, Target.Type);
+            }
 
             EditorGUI.EndDisabledGroup();
         }
         private float GetHeight(int index)
         {
-            SerializedProperty property = CollectionItemsProperty.GetArrayElementAtIndex(index);
-
-            return GenericPropertyDrawer.GetHeight(property, Target.Type) + EditorGUIUtility.standardVerticalSpacing;
+            return EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
         }
     }
 }
